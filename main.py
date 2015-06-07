@@ -82,8 +82,8 @@ class Player:
         return v
 
 
+    #BEST HEURISTIC EUW:
     def nextAction(self):
-        #BEST HEURISTIC EUW:
         v = self.getHandValue()
         if(min(v)>21):
             return BUST
@@ -91,12 +91,6 @@ class Player:
             return STAND
         else:
             return HIT
-
-    def isDealer(self):
-        if(self.name=="Dealer"):
-            return True
-        else:
-            return False
 
     def handToStr(self):
         s = " "
@@ -145,7 +139,7 @@ def playRound():
     if(deck.renew==True):
         deck.__init__(NUM_DECKS)
         print("Cards renewed and shuffled!")
-    for p in game.players:
+    for p in game.players: #Place your bets!!
         if(p.cash>=100):
             p.bet += 100
             p.cash -= 100
@@ -154,11 +148,11 @@ def playRound():
             game.players.remove(p)
     
     for p in game.players:
-        p.giveCard()
-    game.dealer.giveCard()
+        p.giveCard() #One card for each player
+    game.dealer.giveCard() #One card for the dealer
 
     for p in game.players:
-        p.giveCard()
+        p.giveCard() #And again one card for each player
     for p in game.players:
         act = p.nextAction()
         while(not (act==STAND or act==BUST)):
