@@ -1,11 +1,15 @@
 import random
 
+DEBUG = True
+
 BUST = 0
 HIT = 1
 STAND = 2
 SPLIT = 3
 DOUBLE = 4 #Double if possible. If not, hit.
 DOUBLESTAND = 5 #Double if possible. If not, stand.
+
+actions = ['BUST','HIT','STAND','SPLIT','DOUBLE','DOUBLESTAND']
 
 NUM_DECKS = 6 #6-8
 NUM_PLAYERS = 5 #MAX 7
